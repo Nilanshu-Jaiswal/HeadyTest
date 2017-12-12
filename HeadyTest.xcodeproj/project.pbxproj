@@ -14,6 +14,7 @@
 		B559D5131FDFFC79001E205E /* HeadyTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B559D5111FDFFC79001E205E /* HeadyTest.xcdatamodeld */; };
 		B559D5151FDFFC79001E205E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B559D5141FDFFC79001E205E /* Assets.xcassets */; };
 		B559D5181FDFFC79001E205E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B559D5161FDFFC79001E205E /* LaunchScreen.storyboard */; };
+		B559D5201FE00D68001E205E /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D51F1FE00D68001E205E /* CategoryTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		B559D5141FDFFC79001E205E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B559D5171FDFFC79001E205E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B559D5191FDFFC79001E205E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B559D51F1FE00D68001E205E /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		E683EA86EDAD491D5DF52509 /* Pods_HeadyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 				B559D50A1FDFFC79001E205E /* AppDelegate.swift */,
 				B559D50C1FDFFC79001E205E /* WelcomeViewController.swift */,
 				B559D50E1FDFFC79001E205E /* Main.storyboard */,
+				B559D51F1FE00D68001E205E /* CategoryTableViewController.swift */,
 				B559D5141FDFFC79001E205E /* Assets.xcassets */,
 				B559D5161FDFFC79001E205E /* LaunchScreen.storyboard */,
 				B559D5191FDFFC79001E205E /* Info.plist */,
@@ -225,6 +228,7 @@
 				B559D50D1FDFFC79001E205E /* WelcomeViewController.swift in Sources */,
 				B559D5131FDFFC79001E205E /* HeadyTest.xcdatamodeld in Sources */,
 				B559D50B1FDFFC79001E205E /* AppDelegate.swift in Sources */,
+				B559D5201FE00D68001E205E /* CategoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

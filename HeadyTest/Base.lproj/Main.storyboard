@@ -52,6 +52,34 @@
             </objects>
             <point key="canvasLocation" x="260" y="133.5832083958021"/>
         </scene>
+        <!--Category Table View Controller-->
+        <scene sceneID="uT4-39-LwP">
+            <objects>
+                <tableViewController storyboardIdentifier="CategoryTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ajx-QF-fqg" customClass="CategoryTableViewController" customModule="HeadyTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="txc-3H-WUx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Rtu-0i-IoY">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rtu-0i-IoY" id="SvE-ra-M37">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ajx-QF-fqg" id="zE2-k0-R2E"/>
+                            <outlet property="delegate" destination="ajx-QF-fqg" id="Bar-vu-9xb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AkE-Ww-aTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015" y="134"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="stQ-Tl-gOc">
             <objects>
