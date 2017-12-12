@@ -20,11 +20,11 @@ extension Products {
     @NSManaged public var dateAdded: String?
     @NSManaged public var id2: Int16
     @NSManaged public var name: String?
-    @NSManaged public var orderCount: Int16
-    @NSManaged public var shares: Int16
+    @NSManaged public var orderCount: Int64
+    @NSManaged public var shares: Int64
     @NSManaged public var taxName: String?
     @NSManaged public var taxValue: String?
-    @NSManaged public var viewCount: Int16
+    @NSManaged public var viewCount: Int64
     @NSManaged public var category: Categories?
     @NSManaged public var myVariants: NSSet?
 

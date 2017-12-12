@@ -13,16 +13,26 @@ import CoreData
 
 class WelcomeViewController: UIViewController {
 
+    var countTypeArray = ["view_count","order_count","shares"]
+    
+    var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 
+    @IBOutlet weak var startButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startButton.isHidden = true
+        
         if !checkReachability() {
+            startButton.isHidden = false
             self.createAlert(title: "Please connect to internet", message: "Showing already saved data")
+            
         }
         else {
+            startSpinner()
             deleteAllData(entity: "Categories")
             getData()
         }
@@ -37,7 +47,28 @@ class WelcomeViewController: UIViewController {
                 if let value = response.result.value {
                     let json = JSON(value)
                     
+                    var dict1 = [Int: Int]()
+                    var dict2 = [Int: Int]()
+                    var dict3 = [Int: Int]()
+                    
                     let jsonCategories = json["categories"]
+                    let jsonRankings = json["rankings"]
+                    for i in 0...2 {
+                        let localArray = jsonRankings[i]["products"]
+                        let arrayLength = localArray.count
+                        for count in 0...arrayLength {
+                            let id = localArray[count]["id"].intValue
+                            if i == 0 {
+                                dict1[id] = localArray[count][self.countTypeArray[i]].intValue
+                            }
+                            else if i == 1 {
+                                dict2[id] = localArray[count][self.countTypeArray[i]].intValue
+                            }
+                            else if i == 2 {
+                                dict3[id] = localArray[count][self.countTypeArray[i]].intValue
+                            }
+                        }
+                    }
                     
                     if jsonCategories.count > 0 {
                         
@@ -47,6 +78,8 @@ class WelcomeViewController: UIViewController {
                             let cProduct = jsonCategories[category]["products"]
                             let cChild = jsonCategories[category]["child_categories"].stringValue
                             
+                            print(jsonCategories[category]["child_categories"].array ?? "nil")
+                            print("nice")
                             let tempCategory = Categories(id1: cId, name: cName, childCategories: cChild, context: self.context!)
                             (UIApplication.shared.delegate as! AppDelegate).saveContext()
                             
@@ -58,9 +91,9 @@ class WelcomeViewController: UIViewController {
                                     let pTaxName = cProduct[product]["tax"]["name"].stringValue
                                     let pTaxValue = cProduct[product]["tax"]["value"].stringValue
                                     let pVariants = cProduct[product]["variants"]
-                                    let pviewCount = 0
-                                    let porderCount = 0
-                                    let pshares = 0
+                                    let pviewCount = dict1[pId, default: 0]
+                                    let porderCount = dict2[pId, default: 0]
+                                    let pshares = dict3[pId, default: 0]
                                     
                                     let productCD = Products(id2: pId, name: pName, dateAdded: pDate, taxName: pTaxName, taxValue: pTaxValue, viewCount: pviewCount, orderCount: porderCount, shares: pshares, context: self.context!)
                                     productCD.category = tempCategory
@@ -85,11 +118,21 @@ class WelcomeViewController: UIViewController {
                     else {
                         print("No Data Present")
                     }
+                    self.spinner.stopAnimating()
+                    self.startButton.isHidden = false
                 }
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func startSpinner() {
+        spinner.center = self.view.center
+        spinner.hidesWhenStopped = true
+        spinner.color = UIColor.blue
+        view.addSubview(spinner)
+        spinner.startAnimating()
     }
 
 

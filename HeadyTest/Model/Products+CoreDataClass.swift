@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 public class Products: NSManagedObject {
 
     convenience init(id2: Int, name: String, dateAdded: String, taxName: String, taxValue: String, viewCount: Int, orderCount: Int, shares: Int, context: NSManagedObjectContext) {
@@ -22,9 +21,9 @@ public class Products: NSManagedObject {
             self.dateAdded = dateAdded
             self.taxName = taxName
             self.taxValue = taxValue
-            self.viewCount = Int16(viewCount)
-            self.orderCount = Int16(orderCount)
-            self.shares = Int16(shares)
+            self.viewCount = Int64(viewCount)
+            self.orderCount = Int64(orderCount)
+            self.shares = Int64(shares)
         } else {
             fatalError("Can't find Entity")
         }

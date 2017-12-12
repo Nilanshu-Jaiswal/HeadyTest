@@ -15,11 +15,11 @@
         <attribute name="dateAdded" attributeType="String" defaultValueString="NA" syncable="YES"/>
         <attribute name="id2" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" defaultValueString="NA" syncable="YES"/>
-        <attribute name="orderCount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="shares" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="orderCount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="shares" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="taxName" attributeType="String" defaultValueString="NA" syncable="YES"/>
         <attribute name="taxValue" attributeType="String" defaultValueString="0" syncable="YES"/>
-        <attribute name="viewCount" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="viewCount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories" inverseName="myProducts" inverseEntity="Categories" syncable="YES"/>
         <relationship name="myVariants" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Variants" inverseName="product" inverseEntity="Variants" syncable="YES"/>
     </entity>
