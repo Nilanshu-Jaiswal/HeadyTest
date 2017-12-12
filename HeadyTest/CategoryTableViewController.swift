@@ -38,5 +38,15 @@ class CategoryTableViewController: CoreDataTableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController: ProductTableViewController! = mainStoryboard.instantiateViewController(withIdentifier: "ProductTableViewController") as! ProductTableViewController
+        nextViewController.title = "Products"
+        let category = fetchedResultsController?.object(at: indexPath) as! Categories
+        
+        nextViewController.category = category
+        self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
 
 }

@@ -22,6 +22,9 @@
 		B559D5371FE016B2001E205E /* Variants+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D5311FE016B2001E205E /* Variants+CoreDataClass.swift */; };
 		B559D5381FE016B2001E205E /* Variants+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D5321FE016B2001E205E /* Variants+CoreDataProperties.swift */; };
 		B559D53B1FE0209E001E205E /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D53A1FE0209E001E205E /* CoreDataTableViewController.swift */; };
+		B559D53D1FE02364001E205E /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D53C1FE02364001E205E /* ProductTableViewController.swift */; };
+		B559D53F1FE0256B001E205E /* VariantsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D53E1FE0256B001E205E /* VariantsTableViewController.swift */; };
+		B559D5411FE025C7001E205E /* FinalProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D5401FE025C7001E205E /* FinalProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		B559D5311FE016B2001E205E /* Variants+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variants+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B559D5321FE016B2001E205E /* Variants+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variants+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B559D53A1FE0209E001E205E /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
+		B559D53C1FE02364001E205E /* ProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
+		B559D53E1FE0256B001E205E /* VariantsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariantsTableViewController.swift; sourceTree = "<group>"; };
+		B559D5401FE025C7001E205E /* FinalProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProductViewController.swift; sourceTree = "<group>"; };
 		E683EA86EDAD491D5DF52509 /* Pods_HeadyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -101,6 +107,9 @@
 				B559D50C1FDFFC79001E205E /* WelcomeViewController.swift */,
 				B559D53A1FE0209E001E205E /* CoreDataTableViewController.swift */,
 				B559D51F1FE00D68001E205E /* CategoryTableViewController.swift */,
+				B559D53C1FE02364001E205E /* ProductTableViewController.swift */,
+				B559D53E1FE0256B001E205E /* VariantsTableViewController.swift */,
+				B559D5401FE025C7001E205E /* FinalProductViewController.swift */,
 				B559D50E1FDFFC79001E205E /* Main.storyboard */,
 				B559D5141FDFFC79001E205E /* Assets.xcassets */,
 				B559D5161FDFFC79001E205E /* LaunchScreen.storyboard */,
@@ -254,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B559D5411FE025C7001E205E /* FinalProductViewController.swift in Sources */,
 				B559D5331FE016B2001E205E /* Categories+CoreDataClass.swift in Sources */,
+				B559D53F1FE0256B001E205E /* VariantsTableViewController.swift in Sources */,
 				B559D5381FE016B2001E205E /* Variants+CoreDataProperties.swift in Sources */,
 				B559D5361FE016B2001E205E /* Products+CoreDataProperties.swift in Sources */,
 				B559D5341FE016B2001E205E /* Categories+CoreDataProperties.swift in Sources */,
@@ -264,6 +275,7 @@
 				B559D5131FDFFC79001E205E /* HeadyTest.xcdatamodeld in Sources */,
 				B559D50B1FDFFC79001E205E /* AppDelegate.swift in Sources */,
 				B559D5201FE00D68001E205E /* CategoryTableViewController.swift in Sources */,
+				B559D53D1FE02364001E205E /* ProductTableViewController.swift in Sources */,
 				B559D53B1FE0209E001E205E /* CoreDataTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
