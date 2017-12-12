@@ -19,8 +19,13 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        deleteAllData(entity: "Categories")
-        getData()
+        if !checkReachability() {
+            self.createAlert(title: "Please connect to internet", message: "Showing already saved data")
+        }
+        else {
+            deleteAllData(entity: "Categories")
+            getData()
+        }
     }
     
     func getData() {
@@ -112,6 +117,21 @@ class WelcomeViewController: UIViewController {
         } catch let error as NSError {
             print("Detele all data in \(entity) error : \(error) \(error.userInfo)")
         }
+    }
+    
+    func checkReachability() -> Bool {
+        if currentReachabilityStatus == .reachableViaWiFi || currentReachabilityStatus == .reachableViaWWAN {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func createAlert(title: String?, message: String?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
