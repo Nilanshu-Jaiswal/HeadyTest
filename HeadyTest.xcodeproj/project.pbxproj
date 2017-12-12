@@ -83,6 +83,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B51EE2551FE03AD100CB2E38 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				B559D5161FDFFC79001E205E /* LaunchScreen.storyboard */,
+				B559D5141FDFFC79001E205E /* Assets.xcassets */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		B559D4FE1FDFFC79001E205E = {
 			isa = PBXGroup;
 			children = (
@@ -105,20 +114,19 @@
 			isa = PBXGroup;
 			children = (
 				B559D50A1FDFFC79001E205E /* AppDelegate.swift */,
-				B559D5391FE016BD001E205E /* Model */,
+				B559D5391FE016BD001E205E /* Models */,
 				B559D5441FE02DED001E205E /* Controllers */,
 				B559D50E1FDFFC79001E205E /* Main.storyboard */,
-				B559D5141FDFFC79001E205E /* Assets.xcassets */,
-				B559D5161FDFFC79001E205E /* LaunchScreen.storyboard */,
 				B559D5191FDFFC79001E205E /* Info.plist */,
-				B559D5111FDFFC79001E205E /* HeadyTest.xcdatamodeld */,
+				B51EE2551FE03AD100CB2E38 /* Others */,
 			);
 			path = HeadyTest;
 			sourceTree = "<group>";
 		};
-		B559D5391FE016BD001E205E /* Model */ = {
+		B559D5391FE016BD001E205E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B559D5111FDFFC79001E205E /* HeadyTest.xcdatamodeld */,
 				B559D52D1FE016B2001E205E /* Categories+CoreDataClass.swift */,
 				B559D52E1FE016B2001E205E /* Categories+CoreDataProperties.swift */,
 				B559D52F1FE016B2001E205E /* Products+CoreDataClass.swift */,
@@ -127,7 +135,7 @@
 				B559D5321FE016B2001E205E /* Variants+CoreDataProperties.swift */,
 				B559D5421FE02DC5001E205E /* CheckReachability.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B559D5441FE02DED001E205E /* Controllers */ = {

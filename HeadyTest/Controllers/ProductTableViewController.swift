@@ -15,20 +15,51 @@ class ProductTableViewController: CoreDataTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        fetchProducts()
+        
+        print(category?.childCategories)
+        
+        let homeButton   = UIBarButtonItem(title: "HOME", style: .plain, target: self, action: #selector(home))
+        let sortButton = UIBarButtonItem(title: "SORT", style: .plain, target: self, action: #selector(sortOptions))
+        navigationItem.rightBarButtonItems = [homeButton, sortButton]
+        
+        fetchProducts(x: NSSortDescriptor(key: "id2", ascending: true))
     }
     
-    func fetchProducts() {
+    func fetchProducts(x: NSSortDescriptor) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
         
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
-        fr.sortDescriptors = [NSSortDescriptor(key: "id2", ascending: true)]
+        fr.sortDescriptors = [x]
         let predicate = NSPredicate(format: "category = %@", self.category!)
         fr.predicate = predicate
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+    
+    @objc func sortOptions() {
+        let actionSheetController = UIAlertController(title: "SORT", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        }
+        actionSheetController.addAction(cancelActionButton)
+        
+        let viewCountActionButton = UIAlertAction(title: "Most Views", style: .default) { action -> Void in
+            self.fetchProducts(x: NSSortDescriptor(key: "viewCount", ascending: false))
+        }
+        actionSheetController.addAction(viewCountActionButton)
+        
+        let orderCountActionButton = UIAlertAction(title: "Most Orders", style: .default) { action -> Void in
+            self.fetchProducts(x: NSSortDescriptor(key: "orderCount", ascending: false))
+        }
+        actionSheetController.addAction(orderCountActionButton)
+        
+        let sharesActionButton = UIAlertAction(title: "Most Shares", style: .default) { action -> Void in
+            self.fetchProducts(x: NSSortDescriptor(key: "shares", ascending: false))
+        }
+        actionSheetController.addAction(sharesActionButton)
+        
+        self.present(actionSheetController, animated: true, completion: nil)
     }
     
     
