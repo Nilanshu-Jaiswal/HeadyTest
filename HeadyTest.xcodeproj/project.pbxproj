@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4E06890729BA5A7828B6EAF /* Pods_HeadyTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E683EA86EDAD491D5DF52509 /* Pods_HeadyTest.framework */; };
 		B559D50B1FDFFC79001E205E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D50A1FDFFC79001E205E /* AppDelegate.swift */; };
 		B559D50D1FDFFC79001E205E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B559D50C1FDFFC79001E205E /* WelcomeViewController.swift */; };
 		B559D5101FDFFC79001E205E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B559D50E1FDFFC79001E205E /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50AE2B13E05CC2B1926ECC4A /* Pods-HeadyTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyTest/Pods-HeadyTest.release.xcconfig"; sourceTree = "<group>"; };
+		90AB0DADA1DE5773F56305AD /* Pods-HeadyTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeadyTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeadyTest/Pods-HeadyTest.debug.xcconfig"; sourceTree = "<group>"; };
 		B559D5071FDFFC79001E205E /* HeadyTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeadyTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B559D50A1FDFFC79001E205E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B559D50C1FDFFC79001E205E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		B559D5141FDFFC79001E205E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B559D5171FDFFC79001E205E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B559D5191FDFFC79001E205E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E683EA86EDAD491D5DF52509 /* Pods_HeadyTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeadyTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4E06890729BA5A7828B6EAF /* Pods_HeadyTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3075C4281BA187AED3A6A98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E683EA86EDAD491D5DF52509 /* Pods_HeadyTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A35B5414C875D213467A0B60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90AB0DADA1DE5773F56305AD /* Pods-HeadyTest.debug.xcconfig */,
+				50AE2B13E05CC2B1926ECC4A /* Pods-HeadyTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B559D4FE1FDFFC79001E205E = {
 			isa = PBXGroup;
 			children = (
 				B559D5091FDFFC79001E205E /* HeadyTest */,
 				B559D5081FDFFC79001E205E /* Products */,
+				A35B5414C875D213467A0B60 /* Pods */,
+				A3075C4281BA187AED3A6A98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B559D51C1FDFFC79001E205E /* Build configuration list for PBXNativeTarget "HeadyTest" */;
 			buildPhases = (
+				1FC73E3DD4D8B229201438E7 /* [CP] Check Pods Manifest.lock */,
 				B559D5031FDFFC79001E205E /* Sources */,
 				B559D5041FDFFC79001E205E /* Frameworks */,
 				B559D5051FDFFC79001E205E /* Resources */,
+				212DE548289D3794B04CC550 /* [CP] Embed Pods Frameworks */,
+				9A9D02A1BBD7A23B72054965 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FC73E3DD4D8B229201438E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HeadyTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		212DE548289D3794B04CC550 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HeadyTest/Pods-HeadyTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeadyTest/Pods-HeadyTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A9D02A1BBD7A23B72054965 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeadyTest/Pods-HeadyTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B559D5031FDFFC79001E205E /* Sources */ = {
@@ -276,6 +359,7 @@
 		};
 		B559D51D1FDFFC79001E205E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90AB0DADA1DE5773F56305AD /* Pods-HeadyTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +374,7 @@
 		};
 		B559D51E1FDFFC79001E205E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50AE2B13E05CC2B1926ECC4A /* Pods-HeadyTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
