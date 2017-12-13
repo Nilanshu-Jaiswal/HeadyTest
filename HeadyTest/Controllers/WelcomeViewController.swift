@@ -70,6 +70,19 @@ class WelcomeViewController: UIViewController {
                         }
                     }
                     
+                    var dictParent = [Int: Int]() // child: parent
+                    
+                    if jsonCategories.count > 0 {
+                        for category in 0...(jsonCategories.count - 1) {
+                            if jsonCategories[category]["products"].array?.isEmpty == true {
+                                let tempArray = jsonCategories[category]["child_categories"].array
+                                for child in 0...((tempArray?.count)! - 1) {
+                                    dictParent[tempArray![child].intValue] = jsonCategories[category]["id"].intValue
+                                }
+                            }
+                        }
+                    }
+
                     if jsonCategories.count > 0 {
                         
                         for category in 0...(jsonCategories.count - 1) {
@@ -77,10 +90,17 @@ class WelcomeViewController: UIViewController {
                             let cName = jsonCategories[category]["name"].stringValue
                             let cProduct = jsonCategories[category]["products"]
                             let cChild = jsonCategories[category]["child_categories"].stringValue
-                            
+                            var cHasProduct: Bool
+                            if jsonCategories[category]["products"].array?.isEmpty == true {
+                                cHasProduct = false
+                            }
+                            else {
+                                cHasProduct = true
+                            }
+
                             print(jsonCategories[category]["child_categories"].array ?? "nil")
                             print("nice")
-                            let tempCategory = Categories(id1: cId, name: cName, childCategories: cChild, context: self.context!)
+                            let tempCategory = Categories(id1: cId, name: cName, childCategories: cChild, hasProduct: cHasProduct, myParent: String(dictParent[cId, default: 0]) , context: self.context!)
                             (UIApplication.shared.delegate as! AppDelegate).saveContext()
                             
                             if cProduct.count > 0 {

@@ -2,7 +2,7 @@
 //  Categories+CoreDataProperties.swift
 //  HeadyTest
 //
-//  Created by Nilanshu Jaiswal on 12/12/17.
+//  Created by Nilanshu Jaiswal on 13/12/17.
 //  Copyright © 2017 Nilanshu Jaiswal. All rights reserved.
 //
 //
@@ -17,9 +17,11 @@ extension Categories {
         return NSFetchRequest<Categories>(entityName: "Categories")
     }
 
+    @NSManaged public var childCategories: String?
     @NSManaged public var id1: Int16
     @NSManaged public var name: String?
-    @NSManaged public var childCategories: String?
+    @NSManaged public var hasProduct: Bool
+    @NSManaged public var myParent: String?
     @NSManaged public var myProducts: NSSet?
 
 }
