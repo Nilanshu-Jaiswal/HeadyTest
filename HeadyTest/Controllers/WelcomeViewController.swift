@@ -21,6 +21,8 @@ class WelcomeViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var startButton: UIButton!
     
     override func viewDidLoad() {
@@ -37,6 +39,22 @@ class WelcomeViewController: UIViewController {
             startSpinner()
             deleteAllData(entity: "Categories")
             getData()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateWelcome()
+
+    }
+    
+    func animateWelcome() {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 3, animations: {
+            self.topConstraint.constant = 100
+            self.view.layoutIfNeeded()
+        }) { (success) in
+            self.animateWelcome()
         }
     }
     
