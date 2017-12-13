@@ -17,7 +17,6 @@ extension Categories {
         return NSFetchRequest<Categories>(entityName: "Categories")
     }
 
-    @NSManaged public var childCategories: String?
     @NSManaged public var id1: Int16
     @NSManaged public var name: String?
     @NSManaged public var hasProduct: Bool

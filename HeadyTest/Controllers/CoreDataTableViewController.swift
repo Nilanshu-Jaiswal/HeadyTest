@@ -13,6 +13,9 @@ class CoreDataTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 0.0, height: Double(Float.leastNormalMagnitude)))
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "HOME", style: .plain, target: self, action: #selector(home))
     }
     

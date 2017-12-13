@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Categories" representedClassName=".Categories" syncable="YES">
-        <attribute name="childCategories" attributeType="String" defaultValueString="[]" syncable="YES"/>
         <attribute name="hasProduct" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id1" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="myParent" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,7 +32,7 @@
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Products" inverseName="myVariants" inverseEntity="Products" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Categories" positionX="70" positionY="-243" width="128" height="135"/>
+        <element name="Categories" positionX="70" positionY="-243" width="128" height="120"/>
         <element name="Products" positionX="-144" positionY="-108" width="128" height="193"/>
         <element name="Variants" positionX="-218" positionY="152" width="128" height="118"/>
     </elements>

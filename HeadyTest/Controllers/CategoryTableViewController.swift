@@ -15,7 +15,6 @@ class CategoryTableViewController: CoreDataTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchCategories()
     }
     
@@ -26,7 +25,6 @@ class CategoryTableViewController: CoreDataTableViewController {
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Categories")
         fr.sortDescriptors = [NSSortDescriptor(key: "id1", ascending: true)]
         
-        // add a predicate to have myParent = self.myParentValue
         let predicate = NSPredicate(format: "myParent = %@", self.myParentValue)
         fr.predicate = predicate
 
@@ -51,14 +49,14 @@ class CategoryTableViewController: CoreDataTableViewController {
 
         if category.hasProduct == true{
             let nextViewController: ProductTableViewController! = mainStoryboard.instantiateViewController(withIdentifier: "ProductTableViewController") as! ProductTableViewController
-            nextViewController.title = "Products"
+            nextViewController.title = category.name
             nextViewController.category = category
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }
         else
         {
             let nextViewController: CategoryTableViewController! = mainStoryboard.instantiateViewController(withIdentifier: "CategoryTableViewController") as! CategoryTableViewController
-            nextViewController.title = "Categories"
+            nextViewController.title = category.name
             nextViewController.myParentValue = String(category.id1)
             self.navigationController?.pushViewController(nextViewController, animated: true)
         }

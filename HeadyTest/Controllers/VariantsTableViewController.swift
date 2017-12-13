@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class VariantsTableViewController: CoreDataTableViewController {
-
+    
     var product : Products?
     
     override func viewDidLoad() {
@@ -34,10 +34,16 @@ class VariantsTableViewController: CoreDataTableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath)
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell3")
         
         let variant = fetchedResultsController?.object(at: indexPath) as! Variants
         cell.textLabel?.text = variant.color
+        
+        let size = variant.size ?? "0"
+        let price = variant.price ?? "0"
+        
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.text = "Size: " + size + "\n" + "Price: " + price
         
         return cell
     }
@@ -45,11 +51,11 @@ class VariantsTableViewController: CoreDataTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController: FinalProductViewController! = mainStoryboard.instantiateViewController(withIdentifier: "FinalProductViewController") as! FinalProductViewController
-        nextViewController.title = "Product description"
         
         let variant = fetchedResultsController?.object(at: indexPath) as! Variants
         nextViewController.variant = variant
-        
+        nextViewController.title = "Purchase"
+
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
     

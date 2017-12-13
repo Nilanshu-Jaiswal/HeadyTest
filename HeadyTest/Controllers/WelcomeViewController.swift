@@ -13,6 +13,8 @@ import CoreData
 
 class WelcomeViewController: UIViewController {
 
+    // MARK: - Properties
+
     var countTypeArray = ["view_count","order_count","shares"]
     
     var spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -24,12 +26,12 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Heady Project - Online Store"
         startButton.isHidden = true
         
         if !checkReachability() {
             startButton.isHidden = false
             self.createAlert(title: "Please connect to internet", message: "Showing already saved data")
-            
         }
         else {
             startSpinner()
@@ -38,6 +40,8 @@ class WelcomeViewController: UIViewController {
         }
     }
     
+    // MARK: - Method to fetch and locally save JSON data
+
     func getData() {
         let URL = "https://stark-spire-93433.herokuapp.com/json"
         
@@ -46,6 +50,8 @@ class WelcomeViewController: UIViewController {
             case .success:
                 if let value = response.result.value {
                     let json = JSON(value)
+                    
+                    // getting different types of rankings in 3 dictionaries
                     
                     var dict1 = [Int: Int]()
                     var dict2 = [Int: Int]()
@@ -70,6 +76,8 @@ class WelcomeViewController: UIViewController {
                         }
                     }
                     
+                    // getting the parent of each child product category.
+                    
                     var dictParent = [Int: Int]() // child: parent
                     
                     if jsonCategories.count > 0 {
@@ -83,13 +91,14 @@ class WelcomeViewController: UIViewController {
                         }
                     }
 
+                    // saving data in core data
+                    
                     if jsonCategories.count > 0 {
                         
                         for category in 0...(jsonCategories.count - 1) {
                             let cId = jsonCategories[category]["id"].intValue
                             let cName = jsonCategories[category]["name"].stringValue
                             let cProduct = jsonCategories[category]["products"]
-                            let cChild = jsonCategories[category]["child_categories"].stringValue
                             var cHasProduct: Bool
                             if jsonCategories[category]["products"].array?.isEmpty == true {
                                 cHasProduct = false
@@ -98,9 +107,9 @@ class WelcomeViewController: UIViewController {
                                 cHasProduct = true
                             }
 
-                            print(jsonCategories[category]["child_categories"].array ?? "nil")
-                            print("nice")
-                            let tempCategory = Categories(id1: cId, name: cName, childCategories: cChild, hasProduct: cHasProduct, myParent: String(dictParent[cId, default: 0]) , context: self.context!)
+                            // saving category
+                            
+                            let tempCategory = Categories(id1: cId, name: cName, hasProduct: cHasProduct, myParent: String(dictParent[cId, default: 0]) , context: self.context!)
                             (UIApplication.shared.delegate as! AppDelegate).saveContext()
                             
                             if cProduct.count > 0 {
@@ -115,6 +124,8 @@ class WelcomeViewController: UIViewController {
                                     let porderCount = dict2[pId, default: 0]
                                     let pshares = dict3[pId, default: 0]
                                     
+                                    // saving products
+                                    
                                     let productCD = Products(id2: pId, name: pName, dateAdded: pDate, taxName: pTaxName, taxValue: pTaxValue, viewCount: pviewCount, orderCount: porderCount, shares: pshares, context: self.context!)
                                     productCD.category = tempCategory
                                     (UIApplication.shared.delegate as! AppDelegate).saveContext()
@@ -125,6 +136,8 @@ class WelcomeViewController: UIViewController {
                                             let vColor = pVariants[variant]["color"].stringValue
                                             let vSize = pVariants[variant]["size"].stringValue
                                             let vPrice = pVariants[variant]["price"].stringValue
+                                            
+                                            // saving variants
                                             
                                             let variantCD = Variants(id3: vId, color: vColor, size: vSize, price: vPrice, context: self.context!)
                                             variantCD.product = productCD
@@ -147,6 +160,8 @@ class WelcomeViewController: UIViewController {
         }
     }
     
+    // MARK: - Other Methods
+
     func startSpinner() {
         spinner.center = self.view.center
         spinner.hidesWhenStopped = true

@@ -13,13 +13,12 @@ import CoreData
 
 public class Categories: NSManagedObject {
 
-    convenience init(id1: Int, name: String, childCategories: String, hasProduct: Bool, myParent: String, context: NSManagedObjectContext) {
+    convenience init(id1: Int, name: String, hasProduct: Bool, myParent: String, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entity(forEntityName: "Categories", in: context) {
             self.init(entity: ent, insertInto: context)
             self.id1 = Int16(id1)
             self.name = name
-            self.childCategories = childCategories
             self.hasProduct = hasProduct
             self.myParent = myParent
         } else {

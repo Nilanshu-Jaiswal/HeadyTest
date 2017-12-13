@@ -16,8 +16,6 @@ class ProductTableViewController: CoreDataTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(category?.childCategories)
-        
         let homeButton   = UIBarButtonItem(title: "HOME", style: .plain, target: self, action: #selector(home))
         let sortButton = UIBarButtonItem(title: "SORT", style: .plain, target: self, action: #selector(sortOptions))
         navigationItem.rightBarButtonItems = [homeButton, sortButton]
@@ -78,11 +76,12 @@ class ProductTableViewController: CoreDataTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController: VariantsTableViewController! = mainStoryboard.instantiateViewController(withIdentifier: "VariantsTableViewController") as! VariantsTableViewController
-        nextViewController.title = "Variants"
-        let product = fetchedResultsController?.object(at: indexPath) as! Products
         
+        let product = fetchedResultsController?.object(at: indexPath) as! Products
         nextViewController.product = product
+        
+        nextViewController.title = product.name
+
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
 }
