@@ -16,19 +16,48 @@ class VariantsTableViewController: CoreDataTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchVariants()
+        let homeButton   = UIBarButtonItem(title: "HOME", style: .plain, target: self, action: #selector(home))
+        let sortButton = UIBarButtonItem(title: "SORT", style: .plain, target: self, action: #selector(sortOptions))
+        navigationItem.rightBarButtonItems = [homeButton, sortButton]
+
+        fetchVariants(x: NSSortDescriptor(key: "id3", ascending: true))
     }
     
-    func fetchVariants() {
+    func fetchVariants(x: NSSortDescriptor) {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         let context = delegate.persistentContainer.viewContext
         
         let fr = NSFetchRequest<NSFetchRequestResult>(entityName: "Variants")
-        fr.sortDescriptors = [NSSortDescriptor(key: "id3", ascending: true)]
+        fr.sortDescriptors = [x]
         let predicate = NSPredicate(format: "product = %@", self.product!)
         fr.predicate = predicate
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fr, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    }
+    
+    @objc func sortOptions() {
+        let actionSheetController = UIAlertController(title: "SORT", message: nil, preferredStyle: .actionSheet)
+        
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+        }
+        actionSheetController.addAction(cancelActionButton)
+        
+        let colorActionButton = UIAlertAction(title: "Color", style: .default) { action -> Void in
+            self.fetchVariants(x: NSSortDescriptor(key: "color", ascending: false))
+        }
+        actionSheetController.addAction(colorActionButton)
+        
+        let sizeActionButton = UIAlertAction(title: "Size", style: .default) { action -> Void in
+            self.fetchVariants(x: NSSortDescriptor(key: "size", ascending: true))
+        }
+        actionSheetController.addAction(sizeActionButton)
+        
+        let priceActionButton = UIAlertAction(title: "Price", style: .default) { action -> Void in
+            self.fetchVariants(x: NSSortDescriptor(key: "price", ascending: true))
+        }
+        actionSheetController.addAction(priceActionButton)
+        
+        self.present(actionSheetController, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source

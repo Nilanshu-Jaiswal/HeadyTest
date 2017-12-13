@@ -17,10 +17,10 @@ extension Categories {
         return NSFetchRequest<Categories>(entityName: "Categories")
     }
 
-    @NSManaged public var id1: Int16
-    @NSManaged public var name: String?
     @NSManaged public var hasProduct: Bool
+    @NSManaged public var id1: Int16
     @NSManaged public var myParent: String?
+    @NSManaged public var name: String?
     @NSManaged public var myProducts: NSSet?
 
 }

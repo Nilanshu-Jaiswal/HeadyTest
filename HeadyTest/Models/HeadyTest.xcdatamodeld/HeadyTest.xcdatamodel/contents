@@ -3,7 +3,7 @@
     <entity name="Categories" representedClassName=".Categories" syncable="YES">
         <attribute name="hasProduct" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id1" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="myParent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="myParent" attributeType="String" defaultValueString="0" syncable="YES"/>
         <attribute name="name" attributeType="String" defaultValueString="NA" syncable="YES"/>
         <relationship name="myProducts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Products" inverseName="category" inverseEntity="Products" syncable="YES"/>
         <uniquenessConstraints>
