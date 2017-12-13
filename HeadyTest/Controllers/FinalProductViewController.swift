@@ -29,12 +29,31 @@ class FinalProductViewController: UIViewController {
     // MARK: - Methods
 
     @IBAction func purchaseButton(_ sender: UIButton) {
-        self.createAlert(title: "Purchase Successful", message: "Congratulations! you have purchased this product")
+        
+        let adhocAlert = UIAlertController(title: "Purchase", message: "Are you sure you want to purchase this item!", preferredStyle: UIAlertControllerStyle.alert)
+        
+        adhocAlert.addAction(UIAlertAction(title: "NO", style: .default, handler: { (action: UIAlertAction!) in
+        }))
+        
+        adhocAlert.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action: UIAlertAction!) in
+            self.createAlert(title: "Purchase Successful", message: "Congratulations! you have purchased this product")
+        }))
+        
+        self.present(adhocAlert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "HOME", style: .plain, target: self, action: #selector(home))
+
         loadValues()
+    }
+    
+    @objc func home() {
+        if let navigationController = navigationController {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
     
     func loadValues() {
